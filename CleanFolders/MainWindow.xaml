@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CleanFolders"
         mc:Ignorable="d"
-        Title="Clean Folder" Height="220" Width="400">
+        Title="Clean Folder" Height="260" Width="400" MinHeight="230" MinWidth="350">
     <Border Margin="10">
     <Grid>
         <Grid.RowDefinitions>
@@ -20,16 +20,16 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbxFolder" Grid.Column="0" Height="25"/>
-                <Button x:Name="btnSelect" Width="90" Content="Select..." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" Click="btnSelect_Click"/>
+                <Button x:Name="btnSelect" Width="90" Content="Select..." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" />
             </Grid>
             <Label Grid.Row="2" Content="Select File Type to Clean:"/>
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="120"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbxFile" Grid.Column="0" Height="25"/>
                 <CheckBox x:Name="cbxSubFolders" Grid.Column="1" Content="Clean Subfolders" VerticalAlignment="Center" IsChecked="True" HorizontalAlignment="Center"/>
@@ -39,9 +39,9 @@
                 <RadioButton x:Name="rbBackups" Content="Backups" VerticalContentAlignment="Center" Padding="4,-1,-2,0" Margin="20,0,0,0"/>
             </StackPanel>            
             <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
-                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" Click="btnCancel_Click"/>
-                <Button x:Name="btnHelp" Content="Help" Width="90" Height="30" Click="btnHelp_Click"/>
+                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" />
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" />
+                <Button x:Name="btnHelp" Content="Help" Width="90" Height="30" />
             </StackPanel>
         </Grid>
     </Border>
