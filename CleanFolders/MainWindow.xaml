@@ -9,9 +9,9 @@
     <Border Margin="10">
     <Grid>
         <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
@@ -20,7 +20,7 @@
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
                 <TextBox x:Name="tbxFolder" Grid.Column="0" Height="25"/>
                 <Button x:Name="btnSelect" Width="90" Content="Select..." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" Click="btnSelect_Click"/>
@@ -29,16 +29,20 @@
             <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="tbxFile" Grid.Column="0" Height="25"/>                
+                <TextBox x:Name="tbxFile" Grid.Column="0" Height="25"/>
+                <CheckBox x:Name="cbxSubFolders" Grid.Column="1" Content="Clean Subfolders" VerticalAlignment="Center" IsChecked="True" HorizontalAlignment="Center"/>
             </Grid>
-            <CheckBox x:Name="cbxSubFolders" Grid.Row="4" Content="Clean Subfolders" VerticalAlignment="Center" IsChecked="True"/>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left">
+                <RadioButton x:Name="rbArchive" Content="Archive" VerticalContentAlignment="Center" Margin="5,0,14,0" IsChecked="True"/>
+                <RadioButton x:Name="rbBackups" Content="Backups" VerticalContentAlignment="Center" Padding="4,-1,-2,0" Margin="20,0,0,0"/>
+            </StackPanel>            
             <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <Button x:Name="btnOK" Grid.Row="3" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
-                <Button x:Name="btnCancel" Grid.Row="3" Content="Cancel" Width="90" Height="30" Click="btnCancel_Click"/>
+                <Button x:Name="btnOK" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
+                <Button x:Name="btnCancel" Content="Cancel" Width="90" Height="30" Margin="0,0,10,0" Click="btnCancel_Click"/>
+                <Button x:Name="btnHelp" Content="Help" Width="90" Height="30" Click="btnHelp_Click"/>
             </StackPanel>
-
         </Grid>
     </Border>
 </Window>
