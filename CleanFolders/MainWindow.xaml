@@ -5,16 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CleanFolders"
         mc:Ignorable="d"
-        Title="Clean Folder" Height="200" Width="400">
+        Title="Clean Folder" Height="220" Width="400">
     <Border Margin="10">
     <Grid>
         <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-        
-    </Grid>
+            <Label Grid.Row="0" Content="Select Folder to Clean:"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbxFolder" Grid.Column="0" Height="25"/>
+                <Button x:Name="btnSelect" Width="90" Content="Select..." Grid.Column="1" Height="25" Margin="5,2,5,0" VerticalAlignment="Top" Click="btnSelect_Click"/>
+            </Grid>
+            <Label Grid.Row="2" Content="Select File Type to Clean:"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+                <TextBox x:Name="tbxFile" Grid.Column="0" Height="25"/>                
+            </Grid>
+            <CheckBox x:Name="cbxSubFolders" Grid.Row="4" Content="Clean Subfolders" VerticalAlignment="Center" IsChecked="True"/>
+            <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="btnOK" Grid.Row="3" Content="OK" Width="90" Height="30" Margin="0,0,10,0" Click="btnOK_Click"/>
+                <Button x:Name="btnCancel" Grid.Row="3" Content="Cancel" Width="90" Height="30" Click="btnCancel_Click"/>
+            </StackPanel>
+
+        </Grid>
     </Border>
 </Window>
