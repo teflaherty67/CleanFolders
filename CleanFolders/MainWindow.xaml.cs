@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
+using System.IO;
 
 
 namespace CleanFolders
@@ -33,7 +34,7 @@ namespace CleanFolders
 
             foreach (string type in fileType)
             {
-                cmbFileType.Items.Add(fileType);
+                cmbFileType.Items.Add(type);
             }
 
             cmbFileType.SelectedIndex = 0;
@@ -51,11 +52,53 @@ namespace CleanFolders
                 directory = selectFolder.SelectedPath;
                 tbxFolder.Text = directory;
             }
-        }
-
+        }       
+       
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if (directory == "")
+            {
+                System.Windows.Forms.MessageBox.Show("Please select a folder.");
+                this.Close();
+            }
 
+            // set some variables
+
+            int counter = 0;
+            string logPath = "";
+
+            string fileType = cmbFileType.SelectedItem.ToString();
+
+            // create a list for the log
+
+            List<string> deletedFileLog = new List<string>();
+            deletedFileLog.Add("The following backup files have been deleted:");
+
+            // get files from selected folder
+
+            string[] files;
+
+            if (cbxSubFolders.IsChecked == true)
+            {
+                files = Directory.GetFiles(directory, "*.r*", SearchOption.AllDirectories);
+            }
+            else
+            {
+                files = Directory.GetFiles(directory, "*.r*", SearchOption.TopDirectoryOnly);
+            }
+
+            if (cmbFileType.SelectedItem.ToString() == ".rvt")
+            {
+                // do some stuff
+            }
+            else if (cmbFileType.SelectedItem.ToString() == ".rfa")
+            {
+                // do some other stuff
+            }
+            else if (cmbFileType.SelectedItem.ToString() == ".pdf")
+            {
+                // do some other stuff
+            }
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
