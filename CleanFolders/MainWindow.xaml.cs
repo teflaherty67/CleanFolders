@@ -87,9 +87,28 @@ namespace CleanFolders
                 files = Directory.GetFiles(directory, "*.r*", SearchOption.TopDirectoryOnly);
             }
 
+            // clean files per file type
+
             if (cmbFileType.SelectedItem.ToString() == ".rvt")
             {
-                // do some stuff
+                foreach (string curFile in files)
+                {
+                    // check last 9 characters of filename to see if backup file
+
+                    string checkString = curFile.Substring(curFile.Length - 9, 9);
+
+                    if (checkString.Contains(".0") == true)
+                    {
+                        // if so, add file name to log file
+
+                        deletedFileLog.Add(curFile);
+
+                        // and delete the file & increment the counter
+
+                        File.Delete(curFile);
+                        counter++;
+                    }
+                }               
             }
             else if (cmbFileType.SelectedItem.ToString() == ".rfa")
             {
